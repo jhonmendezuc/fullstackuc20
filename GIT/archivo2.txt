@@ -1,1 +1,2 @@
 cambio1 archivo2
+cambio2 archivo2
