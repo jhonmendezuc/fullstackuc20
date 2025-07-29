@@ -1,3 +1,3 @@
-function resta(a, b) {
-  return a - b;
+function resta(a, c) {
+  return a - c;
 }
