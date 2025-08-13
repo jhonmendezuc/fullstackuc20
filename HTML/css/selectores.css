@@ -1,0 +1,207 @@
+/* comentarios de css */
+
+@font-face {
+  font-family: 'greek-freakregular';
+  src: url('greek-freak-webfont.eot');
+  src: url('../fonts/greek-freak-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/greek-freak-webfont.woff2') format('woff2'),
+    url('../fonts/greek-freak-webfont.woff') format('woff'),
+    url('../fonts/greek-freak-webfont.ttf') format('truetype'),
+    url('../fonts/greek-freak-webfont.svg#greek-freakregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'super_maliburegular';
+  src: url('../fonts/super_malibu-webfont.eot');
+  src: url('../fonts/super_malibu-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/super_malibu-webfont.woff2') format('woff2'),
+    url('../fonts/super_malibu-webfont.woff') format('woff'),
+    url('../fonts/super_malibu-webfont.ttf') format('truetype'),
+    url('../fonts/super_malibu-webfont.svg#super_maliburegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'miFuente';
+  src: url('../fonts/icomoon.eot?wtbqwj');
+  src: url('../fonts/icomoon.eot?wtbqwj#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?wtbqwj') format('truetype'),
+    url('../fonts/icomoon.woff?wtbqwj') format('woff'),
+    url('../fonts/icomoon.svg?wtbqwj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'miFuente' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-home2:hover{
+  color: #d018be;
+  font-size: 50px;
+}
+.icon-home2:before {
+  content: "\e901";
+}
+
+.icon-video-camera:before {
+  content: "\e914";
+}
+
+.icon-pacman:before {
+  content: "\e916";
+}
+
+.icon-clubs:before {
+  content: "\e918";
+}
+
+/*selector universal */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* selector de elemento */
+body{  
+  margin-left: 50px;
+  margin-top: 10px;
+  border: 1px solid rgb(10, 102, 255)
+}
+
+button{
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: none;
+} 
+/* selector de id*/
+#boton-rojo{
+  background-color: red;
+}
+
+/*selectores de clase*/
+.boton-verde{
+  background-color: #197720 ;
+  color:white
+}
+
+input{
+  padding: 5px;
+  margin: 3px;
+}
+/*selectores de atributo*/
+input[type="password"]{
+  background-color: blue;
+}
+input[type="text"]{
+  background-color: aliceblue;
+}
+/*selectores descendientes*/
+.primera-parte h1{
+  color: red;
+  font-family: "Roboto", sans-serif;
+  font-weight:300;
+}
+.primera-parte p i{
+  color:#d018be;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.segunda-parte input[type="text"],
+.tercera-parte input[type="text"]{
+  border-radius: 20px;
+}
+
+/*selectores de hijo*/
+.tercera-parte > p {
+  color: #d018be;
+}
+/*selectores de hermanos*/
+/* el primer hermano*/
+.tercera-parte h1 + div{
+  background-color: aqua;
+}
+/* todos los hermanos*/
+.tercera-parte h1 ~ div {
+  background-color: aqua;
+}
+/*pseudo clases*/
+.tercera-parte h1:hover{
+  background: red;
+  margin-left: 20px;
+  color: white;
+  padding-left: 20px;
+  font-size: 50px;
+}
+.tercera-parte h1:active {
+  background: #d018be;
+}
+
+button:hover, 
+input[type="button"]:hover
+{
+  background: #d018be;
+  box-shadow: 1px 2px 3px #005;
+}
+/* pseudoelementos */
+.boton-1::before{
+  content: " 💾 ";
+}
+
+.boton-1::after {
+  content: " -> ";
+}
+
+h2{
+  font-family: "greek-freakregular";
+  font-weight: 800;
+}
+
+h5{
+  font-family: "super_maliburegular";
+}
+
+.caja{
+  width: 200px;
+  height: 200px;
+  background: #197720;
+  animation-name: moverCaja;
+  animation-delay: 100ms;
+  animation-duration: 1000ms; 
+  animation-direction: alternate;
+  animation-timing-function:cubic-bezier(0.215, 0.610, 0.355, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes moverCaja{
+  0%{
+  transform: translateX(10px) ;
+  }
+  30%{
+  transform: translateX(250px);
+  }
+  70%{
+  transform: rotate(25deg);
+  }
+  100%{
+  transform: translateX(500px);
+  }
+}
