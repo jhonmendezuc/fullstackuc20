@@ -57,6 +57,68 @@ class Administrativo extends Usuario {
   }
 }
 
+let nombre = document.getElementById("nombre");
+let apellido = document.getElementById("apellido");
+let correo = document.getElementById("correo");
+let edad = document.getElementById("edad");
+let tipoUsuario = document.getElementById("tipo-usuario");
+let btnEnviar = document.getElementById("btn-enviar");
+let tablaUsuario = document.getElementById("tabla-usuarios");
+
+let usuarios = [];
+
+btnEnviar.addEventListener("click", () => {
+  let nombreValue = nombre.value;
+  let apellidoValue = apellido.value;
+  let correoValue = correo.value;
+  let edadValue = edad.value;
+  let tipoUsuarioValue = tipoUsuario.value;
+  let usuarioNuevo;
+  if (tipoUsuarioValue == "estudiante") {
+    usuarioNuevo = new Estudiante(
+      nombreValue,
+      apellidoValue,
+      correoValue,
+      edadValue
+    );
+  } else if (tipoUsuarioValue == "profesor") {
+    usuarioNuevo = new Profesor(
+      nombreValue,
+      apellidoValue,
+      correoValue,
+      edadValue
+    );
+  } else if (tipoUsuarioValue == "administrativo") {
+    usuarioNuevo = new Administrativo(
+      nombreValue,
+      apellidoValue,
+      correoValue,
+      edadValue
+    );
+  }
+  usuarios.push(usuarioNuevo);
+  actualizarTabla();
+  //localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  //sessionStorage.setItem("usuarios", JSON.stringify(usuarios));
+});
+
+function actualizarTabla() {
+  tablaUsuario.innerHTML = "";
+  usuarios.forEach((usuario) => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td>${usuario.nombre}</td>
+      <td>${usuario.apellido}</td>
+      <td>${usuario.getCorreo()}</td>
+      <td>${usuario.edad}</td>
+      <td>${usuario.constructor.name}</td>
+      <td> ❌ </td>
+    `;
+    tablaUsuario.appendChild(fila);
+  });
+}
+
+/*
 let estudiante = new Estudiante("javier", "guzdman", "javier@gmail.com", 22);
 let profesor = new Profesor("jhon", "mendez", "jhon@gmail.com", 45);
 let administrativo = new Administrativo(
@@ -75,4 +137,4 @@ console.log(usuarios);
 usuarios.forEach((usuario) => {
   console.log(usuario.presentarse()); //polimorfismo
   console.log(usuario.getCorreo());
-});
+}); */

@@ -4,14 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .entrada-txt {
+        margin: 3px;
+        border-radius: 5px;
+        padding: 2px;
+        width: 200px;
+      }
+    </style>
   </head>
   <body>
-    <h3>formulario de registro usuarios</h3>
-    <input type="text" placeholder="ingrese su nombre" /> <br />
-    <input type="text" placeholder="ingrese su apellido" /> <br />
-    <input type="email" placeholder="ingrese su correo" /><br />
-    <input type="number" placeholder="ingrese su edad" /><br />
-    <input type="submit" onclick="validar()" />
+    <div id="app"></div>
+    <h3><b>formulario de registro usuarios</b></h3>
+    <input
+      id="nombre"
+      class="entrada-txt"
+      type="text"
+      placeholder="ingrese su nombre"
+    />
+    <br />
+    <input
+      id="apellido"
+      class="entrada-txt"
+      type="text"
+      placeholder="ingrese su apellido"
+    />
+    <br />
+    <input
+      id="correo"
+      class="entrada-txt"
+      type="email"
+      placeholder="ingrese su correo"
+    /><br />
+    <input
+      id="edad"
+      class="entrada-txt"
+      type="number"
+      placeholder="ingrese su edad"
+    /><br />
+    <select name="" id="tipo-usuario">
+      <option value="estudiante">Estudiante</option>
+      <option value="profesor">Profesor</option>
+      <option value="administrativo">Administrativo</option></select
+    ><br /><br />
+    <input id="btn-enviar" type="submit" />
 
     <table border="1">
       <thead>
@@ -21,15 +57,17 @@
           <td>Correo</td>
           <td>edad</td>
           <td>tipo usuario</td>
+          <td>Eliminar</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="tabla-usuarios">
         <tr>
           <td>jhon</td>
           <td>mendez</td>
           <td>jhon@gmail.com</td>
           <td>45</td>
           <td>Estudiante</td>
+          <td>❌</td>
         </tr>
       </tbody>
     </table>
@@ -38,7 +76,8 @@
     <script src="./ciclos.js"></script>
     <script src="./estructuras.js"></script>
     <script src="./Mapas.js"></script>
-    <script src="./ClasesOjbetos.js"></script>-->
+    <script src="./ClasesOjbetos.js"></script>
+    <script src="./selectoresEventos.js"></script>-->
     <script src="./Formulario.js"></script>
   </body>
 </html>
