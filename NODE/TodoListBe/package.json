@@ -1,0 +1,23 @@
+{
+  "name": "todolistbe",
+  "version": "1.0.0",
+  "description": "api todo list",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "express",
+    "api"
+  ],
+  "author": "jhon mendez",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}

@@ -2,3 +2,4 @@
 *.pdf
 GIT/commits.txt
 PRUEBAS LOCALES
+**/node_modules

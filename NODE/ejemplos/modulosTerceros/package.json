@@ -1,0 +1,26 @@
+{
+  "name": "modulosterceros",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ejemplos de nodee",
+  "main": "index.js",
+  "scripts": {
+    "prueba": "node prueba.js",
+    "start": "node index.js",
+    "dev": " nodemon index.js"
+  },
+  "keywords": [
+    "node",
+    "modulos",
+    "npm"
+  ],
+  "author": "jhon mendez",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
