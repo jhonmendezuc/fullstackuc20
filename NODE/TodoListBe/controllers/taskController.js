@@ -1,32 +1,35 @@
 import taskService from "../services/taskServices.js";
 
-const getTask = (solitud, respuesta) => {
-  const tasks = taskService.getTask();
-  respuesta.send(tasks);
-};
+const getTask = async (req, res) => {
+  const data = await taskService.getTask();
 
-const getTaskId = (solitud, respuesta) => {
-  console.log(solitud.params.id);
-  const idTarea = solitud.params.id;
-  const tareaBusqueda = tareas.filter((tarea) => tarea.id == idTarea);
-  if (tareaBusqueda.length == 0) {
-    respuesta.json({
-      mensaje: "tarea no encontrada",
+  if (data.length === 0) {
+    res.status(404).send({
+      message: "No hay tareas",
     });
   }
-  respuesta.json({
-    mensaje: "tarea encontrada",
-    tarea: tareaBusqueda,
+
+  res.status(200).send({
+    message: "Tareas encontradas",
+    data: data,
   });
 };
 
-const createTask = (req, res) => {
-  console.log("se hizo post en tareas");
-  console.log(req.body);
-  tareas.push(req.body);
-  res.json({
-    mensaje: "tarea agregada",
-    tarea: req.body,
+const getTaskId = async (req, res) => {
+  const idTask = req.params.id;
+  const data = await taskService.getTaskId(idTask);
+  res.status(200).send({
+    message: "Tarea encontrada",
+    data: data,
+  });
+};
+
+const createTask = async (req, res) => {
+  const body = req.body;
+  const data = await taskService.createTask(body);
+  res.status(201).send({
+    message: "Tarea creada",
+    data: data,
   });
 };
 
