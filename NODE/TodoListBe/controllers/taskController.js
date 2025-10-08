@@ -33,8 +33,34 @@ const createTask = async (req, res) => {
   });
 };
 
+const deleteTask = async (req, res) => {
+  const idTask = req.params.id;
+  const data = await taskService.deleteTask(idTask);
+  if (data === null) {
+    res.status(404).send({
+      message: "Tarea no encontrada",
+    });
+  }
+  res.status(410).send({
+    message: "Tarea eliminada",
+    data: data,
+  });
+};
+
+const updateTask = async (req, res) => {
+  const body = req.body;
+  const idTask = req.params.id;
+  const data = await taskService.updateTask(idTask, body);
+  res.status(201).send({
+    message: "Tarea actualizada",
+    data: data,
+  });
+};
+
 export default {
   getTask,
   getTaskId,
   createTask,
+  deleteTask,
+  updateTask,
 };

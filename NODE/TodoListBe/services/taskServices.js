@@ -17,6 +17,29 @@ const getTaskId = async (idTask) => {
   return data;
 };
 
+const deleteTask = async (idTask) => {
+  const data = await prisma.task.delete({
+    where: {
+      id: idTask,
+    },
+  });
+  return data;
+};
+
+const updateTask = async (idTask, body) => {
+  const data = await prisma.task.update({
+    where: {
+      id: idTask,
+    },
+    data: {
+      title: body.title,
+      description: body.description,
+      status: body.status,
+    },
+  });
+  return data;
+};
+
 /*
 se crea una tarea con los datos
 {            
@@ -43,4 +66,6 @@ export default {
   getTask,
   getTaskId,
   createTask,
+  deleteTask,
+  updateTask,
 };

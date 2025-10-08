@@ -20,6 +20,7 @@ model User {
   age      Int
   contry   String
   email    String @unique
+  password String
   tasks    Task[]
 }
 
