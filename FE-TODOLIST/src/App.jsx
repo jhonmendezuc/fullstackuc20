@@ -1,5 +1,5 @@
-import Login from "./login/Login.jsx";
-import Task from "./task/Task.jsx";
+import Login from "@/login/login.jsx";
+import Task from "@/task/task.jsx";
 function App() {
   const sesion = false;
 
