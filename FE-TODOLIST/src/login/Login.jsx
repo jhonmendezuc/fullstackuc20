@@ -1,5 +1,6 @@
 import "./login.css";
 import { useState } from "react";
+import UserService from "@/services/usuarios.js";
 
 import {
   Box,
@@ -38,28 +39,21 @@ function Login() {
     e.preventDefault();
     setLoading(true);
     setError("");
+    const request = await UserService.login(email, password);
+    switch (request.message) {
+      case "Usuario o contraseña incorrecta ":
+        setError(request.message);
+        setTimeout(() => {
+          setError("");
+          setLoading(false);
+        }, 3000);
 
-    try {
-      const res = await fetch("https://tu-api.com/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!res.ok) throw new Error("Error al iniciar sesión");
-
-      const data = await res.json();
-      console.log("Usuario autenticado:", data);
-
-      // Aquí puedes guardar el token o redirigir al dashboard
-      // localStorage.setItem("token", data.token);
-      // navigate("/dashboard");
-    } catch (error) {
-      setError("Credenciales incorrectas o error de conexión.");
-    } finally {
-      setLoading(false);
+        break;
+      default:
+        localStorage.setItem("token", request.data);
+        localStorage.setItem("sesion", true);
+        setLoading(false);
+        window.location.reload();
     }
   };
 

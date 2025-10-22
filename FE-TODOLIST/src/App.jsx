@@ -1,14 +1,30 @@
 import Login from "@/login/login.jsx";
 import Task from "@/task/task.jsx";
+import { useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
+
 function App() {
-  const sesion = false;
+  const [sesion, setSesion] = useState(false);
+
+  useEffect(() => {
+    const sesion = localStorage.getItem("sesion");
+    if (sesion) {
+      setSesion(true);
+    }
+  }, []);
+
+  const logOut = () => {
+    localStorage.clear();
+    setSesion(false);
+  };
 
   if (sesion) {
-    return <Task />;
+    const user = jwtDecode(localStorage.getItem("token")).data;
+    console.log(user);
+    return <Task user={user} logOut={logOut} />;
   } else {
     return (
       <>
-        <h1 className="prueba">Todo List</h1>
         <Login />
       </>
     );
